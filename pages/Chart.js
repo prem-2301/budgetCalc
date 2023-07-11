@@ -3,15 +3,11 @@ import "c3/c3.css";
 import { useEffect } from "react";
 import style from "../styles/chart.module.scss";
 import Image from "next/image";
-import useWindowSize from "./hook";
 import NecessIcon from "./necessity.svg";
 import SavingIcon from "./saving.svg";
 import WantsIcon from "./wants.svg";
 
 export default function Chart({ result, theme }) {
-  const { width: windowWidth } = useWindowSize();
-  const isMobile = windowWidth < 770;
-
   useEffect(() => {
     const generateChart = async () => {
       const themeModule = await import(`../themes/${theme}`);
@@ -20,8 +16,8 @@ export default function Chart({ result, theme }) {
       const chart = c3.generate({
         bindto: "#chart",
         size: {
-          height: isMobile ? 185 : 240,
-          width: isMobile ? 185 : 240,
+          height: 240,
+          width: 300,
         },
         data: {
           order: "asc",
