@@ -1,0 +1,43 @@
+.content {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.necess {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  font-weight: bold;
+}
+
+.colContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.savings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  max-width: 150px;
+  text-align: center;
+
+  position: relative;
+  bottom: 25px;
+  right: 60px;
+}
+
+.wants {
+  font-weight: bold;
+  margin-top: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+  right: 70px;
+}
