@@ -3,7 +3,7 @@ import "c3/c3.css";
 import { useEffect } from "react";
 import style from "../styles/chart.module.scss";
 import Image from "next/image";
-import useWindowSize from "@hooks/useWindowSize";
+import useWindowSize from "./hook";
 import NecessIcon from "./necessity.svg";
 import SavingIcon from "./saving.svg";
 import WantsIcon from "./wants.svg";
