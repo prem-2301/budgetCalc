@@ -36,7 +36,7 @@ export default function BudgetCalc() {
     wants: null,
     savings: null,
   });
-  const theme = "theme2";
+  const theme = "theme1";
 
   const {
     register,
