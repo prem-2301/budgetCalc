@@ -11,10 +11,9 @@ import InfoIcon from "./info.svg";
 import Image from "next/image";
 import Logo from "./logo.svg";
 import Popup from "reactjs-popup";
-import loadable from "@loadable/component";
 import "reactjs-popup/dist/index.css";
 
-const DynamicChart = loadable(() => import("./Chart"), {
+const DynamicChart = dynamic(() => import("./Chart"), {
   ssr: false,
 });
 

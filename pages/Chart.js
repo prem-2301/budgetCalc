@@ -9,46 +9,49 @@ import WantsIcon from "./wants.svg";
 
 export default function Chart({ result, theme }) {
   useEffect(() => {
-    const generateChart = async () => {
-      const themeModule = await import(`../themes/${theme}`);
-      const newTheme = themeModule.default;
+    // const generateChart = async () => {
+    //   const themeModule = await import(`../themes/${theme}`);
+    //   const newTheme = themeModule.default;
 
-      const chart = c3.generate({
-        bindto: "#chart",
-        size: {
-          height: 240,
-          width: 300,
+    const chart = c3.generate({
+      bindto: "#chart",
+      size: {
+        height: 240,
+        width: 300,
+      },
+      data: {
+        order: "asc",
+        columns: [
+          ["necess", result.necess],
+          ["wants", result.wants],
+          ["savings", result.savings],
+        ],
+        colors: {
+          necess: "#24326e",
+          wants: "#7083d4",
+          savings: "#4657a1",
+          // necess: newTheme[3],
+          // wants: newTheme[4],
+          // savings: newTheme[1],
         },
-        data: {
-          order: "asc",
-          columns: [
-            ["necess", result.necess],
-            ["wants", result.wants],
-            ["savings", result.savings],
-          ],
-          colors: {
-            necess: newTheme[3],
-            wants: newTheme[4],
-            savings: newTheme[1],
-          },
-          type: "donut",
-        },
-        legend: {
+        type: "donut",
+      },
+      legend: {
+        show: false,
+      },
+      tooltip: {
+        show: false,
+      },
+      donut: {
+        padAngle: 0,
+        label: {
           show: false,
         },
-        tooltip: {
-          show: false,
-        },
-        donut: {
-          padAngle: 0,
-          label: {
-            show: false,
-          },
-        },
-      });
-    };
+      },
+    });
+    // };
 
-    generateChart();
+    // generateChart();
   }, [theme]);
 
   return (
