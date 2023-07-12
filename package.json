@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.1.1",
+    "@loadable/component": "^5.15.3",
     "c3": "^0.7.20",
     "next": "13.4.8",
     "react": "18.2.0",
