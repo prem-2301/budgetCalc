@@ -48,7 +48,9 @@ export default function Chart({ result, theme }) {
       });
     };
 
-    generateChart();
+    if (typeof window !== "undefined") {
+      generateChart();
+    }
   }, [theme]);
 
   return (

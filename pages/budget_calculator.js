@@ -133,9 +133,7 @@ export default function BudgetCalc() {
           {result.showResult && (
             <div className={style.result}>
               <div className={style.chart}>
-                {typeof window !== "undefined" && (
-                  <DynamicChart result={result} theme={theme} />
-                )}
+                <DynamicChart result={result} theme={theme} />
               </div>
               <div className={style.resultHeading}>
                 Your 50/30/20 Budget Allocation
