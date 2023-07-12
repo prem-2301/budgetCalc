@@ -11,51 +11,53 @@ export default function Chart({
   // result,
   theme,
 }) {
-  useEffect(() => {
-    const generateChart = async () => {
-      const themeModule = await import(`../themes/${theme}`);
-      const newTheme = themeModule.default;
+  // useEffect(() => {
+  // const generateChart = async () => {
+  //   const themeModule = await import(`../themes/${theme}`);
+  //   const newTheme = themeModule.default;
 
-      const chart = c3.generate({
-        bindto: "#chart",
-        size: {
-          height: 240,
-          width: 300,
-        },
-        data: {
-          order: "asc",
-          columns: [
-            ["necess", 50],
-            ["wants", 30],
-            ["savings", 20],
-            // ["necess", result.necess],
-            // ["wants", result.wants],
-            // ["savings", result.savings],
-          ],
-          colors: {
-            necess: newTheme[3],
-            wants: newTheme[4],
-            savings: newTheme[1],
-          },
-          type: "donut",
-        },
-        legend: {
-          show: false,
-        },
-        tooltip: {
-          show: false,
-        },
-        donut: {
-          padAngle: 0,
-          label: {
-            show: false,
-          },
-        },
-      });
-    };
+  const newTheme = require(`../themes/${theme}`).default;
 
-    generateChart();
-  }, [theme]);
+  const chart = c3.generate({
+    bindto: "#chart",
+    size: {
+      height: 240,
+      width: 300,
+    },
+    data: {
+      order: "asc",
+      columns: [
+        ["necess", 50],
+        ["wants", 30],
+        ["savings", 20],
+        // ["necess", result.necess],
+        // ["wants", result.wants],
+        // ["savings", result.savings],
+      ],
+      colors: {
+        necess: newTheme[3],
+        wants: newTheme[4],
+        savings: newTheme[1],
+      },
+      type: "donut",
+    },
+    legend: {
+      show: false,
+    },
+    tooltip: {
+      show: false,
+    },
+    donut: {
+      padAngle: 0,
+      label: {
+        show: false,
+      },
+    },
+  });
+  // };
+
+  // generateChart();
+  // }, [theme]);
 
   return (
     <>
