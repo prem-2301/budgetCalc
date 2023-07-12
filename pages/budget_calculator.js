@@ -133,9 +133,10 @@ export default function BudgetCalc() {
           {result.showResult && (
             <div className={style.result}>
               <div className={style.chart}>
-                <DynamicChart result={result} theme={theme} />
+                {typeof window !== "undefined" && (
+                  <DynamicChart result={result} theme={theme} />
+                )}
               </div>
-
               <div className={style.resultHeading}>
                 Your 50/30/20 Budget Allocation
               </div>
@@ -207,7 +208,6 @@ export default function BudgetCalc() {
                   <div className={style.amountText}>${result.savings}</div>
                 </div>
               </div>
-
               <div className={style.resultHeading}>
                 Your 50/30/20 Annual Allocation
               </div>
