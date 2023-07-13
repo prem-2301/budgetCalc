@@ -1,4 +1,3 @@
-import c3 from "c3";
 import "c3/c3.css";
 import { useEffect } from "react";
 import style from "../styles/chart.module.scss";
@@ -7,57 +6,51 @@ import NecessIcon from "./necessity.svg";
 import SavingIcon from "./saving.svg";
 import WantsIcon from "./wants.svg";
 
-export default function Chart({
-  // result,
-  theme,
-}) {
-  // useEffect(() => {
-  // const generateChart = async () => {
-  //   const themeModule = await import(`../themes/${theme}`);
-  //   const newTheme = themeModule.default;
+export default function Chart({ result, theme }) {
+  useEffect(() => {
+    const generateChart = async () => {
+      const themeModule = await import(`../themes/${theme}`);
+      const newTheme = themeModule.default;
 
-  const newTheme = require(`../themes/${theme}`).default;
+      import("c3").then((c3) => {
+        return c3.generate({
+          bindto: "#chart",
+          size: {
+            height: 240,
+            width: 300,
+          },
+          data: {
+            order: "asc",
+            columns: [
+              ["necess", result.necess],
+              ["wants", result.wants],
+              ["savings", result.savings],
+            ],
+            colors: {
+              necess: newTheme[3],
+              wants: newTheme[4],
+              savings: newTheme[1],
+            },
+            type: "donut",
+          },
+          legend: {
+            show: false,
+          },
+          tooltip: {
+            show: false,
+          },
+          donut: {
+            padAngle: 0,
+            label: {
+              show: false,
+            },
+          },
+        });
+      });
+    };
 
-  const chart = c3.generate({
-    bindto: "#chart",
-    size: {
-      height: 240,
-      width: 300,
-    },
-    data: {
-      order: "asc",
-      columns: [
-        ["necess", 50],
-        ["wants", 30],
-        ["savings", 20],
-        // ["necess", result.necess],
-        // ["wants", result.wants],
-        // ["savings", result.savings],
-      ],
-      colors: {
-        necess: newTheme[3],
-        wants: newTheme[4],
-        savings: newTheme[1],
-      },
-      type: "donut",
-    },
-    legend: {
-      show: false,
-    },
-    tooltip: {
-      show: false,
-    },
-    donut: {
-      padAngle: 0,
-      label: {
-        show: false,
-      },
-    },
-  });
-  // };
-
-  // generateChart();
-  // }, [theme]);
+    generateChart();
+  }, [theme]);
 
   return (
     <>
@@ -66,7 +59,7 @@ export default function Chart({
           <Image src={NecessIcon} alt="Necess" />
           50% Necessities
         </div>
-        <div className={style.chart} id="chart"></div>
+        <div on className={style.chart} id="chart"></div>
         <div className={style.colContent}>
           <div className={style.savings}>
             <Image src={SavingIcon} alt="Wants" />
