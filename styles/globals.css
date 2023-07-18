@@ -13,5 +13,5 @@
 }
 
 body {
-  font-family: EuclidCircularB;
+  font-family: var(--font-1);
 }

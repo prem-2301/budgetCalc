@@ -42,7 +42,7 @@
 
 .content {
   border: 0.5px rgb(226, 225, 225) solid;
-  border-top: 0px;
+  border-top: var(--border-1);
   border-radius: 0px 0px 10px 10px;
   // padding: 20px;
 }
@@ -74,7 +74,8 @@
   label {
     display: flex;
     flex-direction: row;
-    font-size: 16px;
+    font-weight: 400;
+    font-size: var(--input-label-heading);
     cursor: pointer;
   }
 
@@ -87,9 +88,13 @@
     padding-left: 40px;
     font-weight: bold;
     color: #334155;
-    // justify-self: center;
-    // align-items: center;
   }
+}
+
+.inputInside {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .calculate {
@@ -104,7 +109,7 @@
   }
 
   button {
-    background-color: var(--color-primary);
+    background-color: var(--color-button);
     width: 100%;
     height: 50px;
     border: 0px;
@@ -113,6 +118,7 @@
     font-size: 18px;
     font-family: var(--font-2);
     cursor: pointer;
+    font-weight: 700;
   }
 }
 
@@ -125,7 +131,7 @@
 }
 
 .result {
-  background-color: #f5f7ff;
+  background-color: var(--color-result-bg);
   padding-bottom: 50px;
 }
 
@@ -137,14 +143,13 @@
 .resultHeading {
   margin-top: 50px;
   text-align: center;
-  font-weight: 900;
-  font-size: 19px;
+  font-weight: var(--result-heading-fw);
+  font-size: var(--result-heading-fs);
 }
 
 .currencySign {
   position: absolute;
   margin-left: 15px;
-  transform: translateY(60%);
   color: #94a3b8;
   font-weight: 600;
   font-size: larger;
@@ -171,7 +176,8 @@
   align-items: center;
   padding: 10px 10px;
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: var(--result-label-fs);
+  font-weight: var(--result-label-fw);
   text-align: center;
   @media (max-width: 770px) {
     width: 90%;
@@ -205,7 +211,7 @@
 }
 
 .amountText {
-  color: var(--color-primary);
+  color: var(--color-amount);
   font-family: var(--font-2);
   font-weight: bolder;
   font-size: 32px;
@@ -228,4 +234,27 @@
 
   transform: translateX(-50%);
   visibility: hidden;
+}
+
+.usatHeader {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.usatHeadTitle {
+  font-family: var(--font-1);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 35px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.usatHeadContent {
+  font-family: var(--font-1);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
 }

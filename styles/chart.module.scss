@@ -9,7 +9,8 @@
   flex-direction: column;
   align-items: center;
   align-self: center;
-  font-weight: bold;
+  font-size: var(--chart-label-fs);
+  font-weight: var(--chart-label-fw);
 }
 
 .colContent {
@@ -21,7 +22,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-weight: bold;
+
+  font-size: var(--chart-label-fs);
+  font-weight: var(--chart-label-fw);
   max-width: 150px;
   text-align: center;
 
@@ -31,7 +34,8 @@
 }
 
 .wants {
-  font-weight: bold;
+  font-size: var(--chart-label-fs);
+  font-weight: var(--chart-label-fw);
   margin-top: auto;
   text-align: center;
   display: flex;

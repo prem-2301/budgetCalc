@@ -36,7 +36,9 @@ export default function BudgetCalc() {
     wants: null,
     savings: null,
   });
-  const theme = "theme1";
+
+  //Theme change
+  const theme = "theme3";
 
   const {
     register,
@@ -69,19 +71,29 @@ export default function BudgetCalc() {
         <style>{`${applyTheme(theme)}`}</style>
       </NextHead>
       <div className={style.page}>
-        <div className={style.header}>
-          <div className={style.headTitle}>
-            <p className={style.headTitleTitle}>Budget Calculator</p>
-            <p className={style.headTitleContent}>
+        {theme === "theme3" ? (
+          <div className={style.usatHeader}>
+            <p className={style.usatHeadTitle}>Budget Calculator</p>
+            <p className={style.usatHeadContent}>
               Enter your monthly after-tax income into this free budget
               calculator to create a suggested budget.
             </p>
           </div>
+        ) : (
+          <div className={style.header}>
+            <div className={style.headTitle}>
+              <p className={style.headTitleTitle}>Budget Calculator</p>
+              <p className={style.headTitleContent}>
+                Enter your monthly after-tax income into this free budget
+                calculator to create a suggested budget.
+              </p>
+            </div>
 
-          <div className={style.headerImg}>
-            <Image src={Logo} alt="Logo" />
+            <div className={style.headerImg}>
+              <Image src={Logo} alt="Logo" />
+            </div>
           </div>
-        </div>
+        )}
 
         <div className={style.content}>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -101,7 +113,7 @@ export default function BudgetCalc() {
                     total.
                   </Popup>
                 </label>
-                <div>
+                <div className={style.inputInside}>
                   <div className={style.currencySign}>$</div>
                   <input {...register("income")} />
                 </div>
@@ -116,13 +128,15 @@ export default function BudgetCalc() {
                 <button type="submit">
                   {!buttonStatus ? (
                     <>
-                      Recalculate{" "}
+                      {theme === "theme3" ? "RECALCULATE" : "Recalculate"}
                       <Image
                         className={style.recalc}
                         src={Recalc}
                         alt="Recalculate"
                       />
                     </>
+                  ) : theme === "theme3" ? (
+                    "CALCULATE"
                   ) : (
                     "Calculate"
                   )}

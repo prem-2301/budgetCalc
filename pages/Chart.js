@@ -29,7 +29,7 @@ export default function Chart({ result, theme }) {
             colors: {
               necess: newTheme[3],
               wants: newTheme[4],
-              savings: newTheme[1],
+              savings: newTheme[5],
             },
             type: "donut",
           },
