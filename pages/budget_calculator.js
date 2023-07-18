@@ -28,7 +28,8 @@ const defaultValues = {
   income: 5000,
 };
 
-export default function BudgetCalc() {
+export default function BudgetCalc({ themeid }) {
+  console.log(themeid);
   const [buttonStatus, setButtonStatus] = useState(true);
   const [result, setResult] = useState({
     showResult: false,
@@ -38,7 +39,7 @@ export default function BudgetCalc() {
   });
 
   //Theme change
-  const theme = "theme3";
+  const theme = themeid || "theme3";
 
   const {
     register,
